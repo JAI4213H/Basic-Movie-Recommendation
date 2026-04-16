@@ -1,0 +1,3 @@
+1. This is a basic movie recommendation system
+2. It works on giving the movie name with its key features.
+3. Just input your movie name and you will get the recommended movies in it.
