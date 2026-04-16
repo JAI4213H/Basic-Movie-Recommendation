@@ -1,7 +1,7 @@
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
-movie_data = {
+#Put the movie name and its main keywords here so the model can use it
+movie_data = { 
     "Interstellar": "space exploration sci-fi time dilation black hole",
     "Inception": "dream mind bending sci-fi thriller subconscious",
     "The Dark Knight": "batman crime action joker thriller",
@@ -112,24 +112,24 @@ movie_data = {
     "Interstellar 2": "space future sci-fi exploration hypothetical"
 }
 
-movies = list(movie_data.keys())
+movies = list(movie_data.keys()) #made a list for movie and features differently
 features = list(movie_data.values())
 
-cv = CountVectorizer()
+cv = CountVectorizer()#Used CountCectorizer
 vector = cv.fit_transform(features)
 
-similarity = cosine_similarity(vector)
+similarity = cosine_similarity(vector)#Will find the similarity and put it in an arry
 
 desire = movies.index(str(input("Tell movie Name: ")))
 
-match = list(enumerate(similarity[desire]))
+match = list(enumerate(similarity[desire]))#will find the similarity of other movies with desire movie
 match = sorted(match, key=lambda x: x[1], reverse=True) 
 
 print(f"The top 5 Best matches for the movie {movies[desire]} is")
 for i in match[1:6]:
     print(movies[i[0]],",   with score", i[1] * 100)
     
-
+# if you want it in loop just put it in While Loop and you can use it again and again without executing the code again and again
 
 
 
